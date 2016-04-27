@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/angular.ngtable/1.0.0-alpha.5/ng-table.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/angular.ngtable/1.0.0-alpha.5/ng-table.css">
+    </head>
+<body ng-app="main">
+<h1>Angular.js Table Example with ng-table</h1>
+	<div ng-controller="DemoCtrl">
+			<table ng-table class="table">
+				<tr ng-repeat="user in users">
+					<td title="'Name'">
+						{{user.name}}
+					</td>
+					<td title="'Age'">
+						{{user.age}}
+					</td>
+				</tr>
+			</table>
+			<script>
+			var app = angular.module('main', ['ngTable']).
+			controller('DemoCtrl', function($scope) {
+				$scope.users = [{name: "Moroni", age: 50},
+                {name: "Tiancum", age: 43},
+                {name: "Jacob", age: 27},
+                {name: "Nephi", age: 29},
+                {name: "Enos", age: 34}];
+			})
+			</script>
+	</div>
+    </body>
+</html>

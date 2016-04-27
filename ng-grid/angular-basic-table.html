@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>Angular.js Table</title>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<style>
+table, th , td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+</style>
+</head>
+<body>
+<h2>Angular.js Simple Table</h2>
+<div ng-app="mainApp" ng-controller="customerController">
+<table border="0">
+<tr>
+	<td>First name:</td><td><input type="text" ng-model="customer.firstName"></td>
+</tr>
+<tr>
+	<td>Last name: </td><td><input type="text" ng-model="customer.lastName"></td>
+</tr>
+<tr>
+	<td>Full name: </td><td>{{customer.fullName()}}</td>
+</tr>
+<tr><td>Expectations:</td><td>
+<table>
+   <tr>
+      <th>Car</th>
+      <th>Rating</th>
+   </tr>
+   <tr ng-repeat="rating in customer.ratings">
+      <td>{{ rating.car }}</td>
+      <td>{{ rating.mark }}</td>
+   </tr>
+</table>
+</td></tr>
+</table>
+</div>
+<script>
+var mainApp = angular.module("mainApp", []);
+
+mainApp.controller('customerController', function($scope) {
+   $scope.customer = {
+      firstName: "",
+      lastName: "",
+      ratings:[
+         {car:'BMW 316 E46', mark:77},
+         {car:'BMW 316 E92', mark:89},
+         {car:'BMW M3 E92', mark:94},
+		 {car:'BMW M3 e46', mark:90},
+		 {car:'BMW X6', mark:85}
+      ],
+      fullName: function() {
+         var customerObject;
+         customerObject = $scope.customer;
+         return customerObject.firstName + " " + customerObject.lastName;
+      }
+   };
+});
+</script>
+</body>
+</html>
