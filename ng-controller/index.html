@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AngularJS Controller Example</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="style.css" >
+</head>
+
+<body ng-app="myApp">
+	<h2>AngularJS Controller Example</h2>
+	<div ng-controller="UserController">
+		<form>
+		<label>Name:</label>
+		<input type="text" class="form-control" name="username" ng-model="username">
+		<button class="btn btn-link" ng-click="reset()">Reset</button>
+
+		<p>Your username is {{username}}</p>
+		</form>
+	</div>
+</body>
+</html>

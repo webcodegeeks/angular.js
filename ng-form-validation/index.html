@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+	<script src="script.js"></script>
+	<link rel="stylesheet" href="style.css" >
+</head>
+    
+<body>
+<h2>AngularJS Form Validation Example</h2>
+
+<form ng-app="" ng-controller="validationCtrl" name="sampleForm" novalidate>
+	<div class="form-group">
+		<p>
+			<label class="control-label">Username:</label>
+			<input type="text" class="form-control" name="username" ng-model="username" required >
+			<span style="color:red" ng-show="sampleForm.username.$dirty && sampleForm.username.$invalid">
+			<span ng-show="sampleForm.username.$error.required">Username is required.</span>
+			</span>
+		</p>
+		<p>
+			<label class="control-label">Email:</label>
+			<input type="email" class="form-control" name="email" ng-model="email" required>
+			<span style="color:red" ng-show="sampleForm.email.$dirty && sampleForm.email.$invalid" />
+			<span ng-show="sampleForm.email.$error.required">Email is required.</span>
+			<span ng-show="sampleForm.email.$error.email">Invalid email address.</span>
+		</p>
+		<p>
+			<button class="btn btn-link" ng-click="reset()">Reset</button>
+			<input type="submit" class="btn btn-primary" ng-click="checkData()"
+			ng-disabled="sampleForm.user.$dirty && sampleForm.user.$invalid ||  
+			sampleForm.email.$dirty && sampleForm.email.$invalid || sampleForm.$invalid">
+		</p>
+	</div>
+</form>
+
+</body>
+</html>
